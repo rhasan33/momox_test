@@ -68,6 +68,10 @@ def item_id_with_amount(item_data: str) -> List[Dict]:
     for item in items:
         # again spliting the text by `x` that and separate the item info from string
         item_info = item.split('x')
+        item_id = get_item_id_from_menu(item_info[1])
+        if not item_id:
+            print('invalid item id 0')
+            sys.exit()
         # pass the name of the item from the list index[1] to get_item_id_from_menu function and get the item id
         item_list.append({
             'id': get_item_id_from_menu(item_info[1]),
